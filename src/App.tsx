@@ -21,10 +21,11 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Details from './pages/Details';
 
 setupIonicReact();
 
-const App: React.FC = () => (
+/* const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
@@ -37,6 +38,20 @@ const App: React.FC = () => (
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-);
+);  */
+
+const App: React.FC = () => (
+	<IonApp>
+		<IonReactRouter>
+			<IonRouterOutlet>
+				<Route exact path="/movies" component={Home} />
+				<Route exact path="/movies/:id" component={Details} />
+				<Route exact path="/">
+					<Redirect to="/movies" />
+				</Route>
+			</IonRouterOutlet>
+		</IonReactRouter>
+	</IonApp>
+); 
 
 export default App;
